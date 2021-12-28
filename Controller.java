@@ -16,8 +16,10 @@ public class Controller {
     @FXML
     private TextField phoneField;
     @FXML
-    private Label list;
-
+    //private Label list;
+    
+    
+    
 
     Logic phoneBook = new Logic();
 
