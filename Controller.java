@@ -16,22 +16,22 @@ public class Controller {
     @FXML
     private TextField phoneField;
     @FXML
-    //private Label list;
-    
-    
-    
+    private TextArea book;
 
-    Logic phoneBook = new Logic();
-
+    // construct book model/logic
+    BookLogic phoneBook = new BookLogic();
 
     public void add(ActionEvent event) {
 
         String name = nameField.getText();
         String phone = phoneField.getText();
-        Person row = new Person(name,phone);
-        System.out.println( row + " Added.");
+        Person contact = new Person(name,phone);
 
-        //list.setText( "fghjghjgdfhj" );
+        phoneBook.put( contact.getName(), contact.getPhone() );
+        book.setText( phoneBook.toString() );
+
+        //book.setText( book.getText() + contact.toString()+ "\n" );
+        System.out.println( contact + " Added.");
 
         nameField.setText("");
         phoneField.setText("");

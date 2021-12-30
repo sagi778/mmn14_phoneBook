@@ -7,7 +7,10 @@ public class Person {
     private String _phone;
 
     //constructors
-    public Person(){}
+    public Person(){
+        _name = "";
+        _phone = "";
+    }
     public Person(String name, String phone){
         _name = name;
         _phone = phone;

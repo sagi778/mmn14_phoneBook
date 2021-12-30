@@ -3,8 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -14,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phone_Book.Controller">
+<GridPane alignment="center" hgap="10" prefHeight="439.0" prefWidth="218.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phone_Book.Controller">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -22,15 +20,21 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <VBox prefHeight="294.0" prefWidth="218.0">
+      <VBox prefHeight="435.0" prefWidth="218.0">
          <children>
             <Label text="My Phone Book">
                <font>
                   <Font size="18.0" />
-               </font></Label>
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin></Label>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#save" text="Save" />
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#save" text="Save">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Button>
                   <Label fx:id="saveStatus" prefHeight="20.0" prefWidth="134.0" textFill="#654aff">
                      <font>
                         <Font size="14.0" />
@@ -41,31 +45,47 @@
                   </Label>
                </children>
             </HBox>
-            <TextArea fx:id="list" prefHeight="200.0" prefWidth="200.0" />
-            <TableView fx:id="table" prefHeight="746.0" prefWidth="218.0">
-              <columns>
-                <TableColumn fx:id="nameCol" editable="false" prefWidth="75.0" sortable="false" text="Name" />
-                <TableColumn fx:id="phoneCol" editable="false" prefWidth="75.0" sortable="false" text="Phone Number" />
-              </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
-            </TableView>
+            <Label text="Name, Phone #" textFill="#083f72">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="book" editable="false" prefHeight="411.0" prefWidth="218.0" promptText="No Contacts" />
             <Label text="Add Contact:">
                <VBox.margin>
-                  <Insets left="5.0" right="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="nameField" promptText="Name:" />
-                  <TextField fx:id="phoneField" promptText="Phone:" />
+                  <TextField fx:id="nameField" promptText="Name:">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></TextField>
+                  <TextField fx:id="phoneField" promptText="Phone:">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin></TextField>
                </children>
             </HBox>
             <HBox prefHeight="142.0" prefWidth="218.0">
                <children>
-                  <Button fx:id="add" mnemonicParsing="false" onAction="#add" text="Add" />
-                  <Button fx:id="delete" disable="true" mnemonicParsing="false" onAction="#delete" text="Delete" />
+                  <Button fx:id="add" mnemonicParsing="false" onAction="#add" text="Add">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Button>
+                  <Button fx:id="delete" disable="true" mnemonicParsing="false" onAction="#delete" text="Delete">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin></Button>
+                  <Button fx:id="delete" disable="true" mnemonicParsing="false" onAction="#delete" text="Update">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
                </children></HBox>
          </children>
       </VBox>
